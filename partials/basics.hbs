@@ -1,0 +1,30 @@
+{{# resume.basics}}
+## {{name}}
+
+{{#if picture}}
+![]({{picture}})
+{{/if}}
+{{#if phone}}
+Phone: {{phone}}
+{{/if}}
+{{#if email}}
+Email: {{email}}
+{{/if}}
+{{#if website}}
+Website: {{website}}
+{{/if}}
+{{#each profiles}}
+{{#if (and network url)}}
+{{network}}: {{url}}
+{{/if}}
+{{/each}}
+{{#if location}}
+Address: {{buildAddress location}}
+{{/if}}
+
+{{#if summary}}
+## Overview
+
+{{summary}}
+{{/if}}
+{{/resume.basics}}

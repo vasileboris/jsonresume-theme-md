@@ -1,0 +1,12 @@
+{
+  "name": "jsonresume-theme-md",
+  "version": "0.1.0",
+  "description": "It is a theme used to render a jsonresume as markdown",
+  "main": "index.js",
+  "repository": "https://github.com/vasileboris/jsonresume-theme-md",
+  "author": "Vasile Boris",
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.0.12"
+  }
+}
