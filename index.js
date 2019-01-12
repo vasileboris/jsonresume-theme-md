@@ -8,7 +8,10 @@ function render(resume) {
 		filenames = fs.readdirSync(partialsDir);
 
 	Handlebars.registerHelper('and', (...params) => params.length ? params.reduce((acc, p) => acc && p) : false);
+	Handlebars.registerHelper('or', (...params) => params.length ? params.reduce((acc, p) => acc || p) : false);
 	Handlebars.registerHelper('buildAddress', buildAddress);
+	Handlebars.registerHelper('buildCompany', buildCompany);
+	Handlebars.registerHelper('buildPosition', buildPosition);
 
 	filenames.forEach(function (filename) {
 	  const matches = /^([^.]+).hbs$/.exec(filename);
@@ -30,6 +33,25 @@ function render(resume) {
 const buildAddress = location => {
 	const details = ['address', 'postalCode', 'city', 'region', 'countryCode'];
 	return details.reduce((acc, detail) => location[detail] ? `${acc}${location[detail]} ` : acc, '')
+};
+
+const buildCompany = ({company, website}) => {
+	return website ? `[${company}](${website})` : company;
+};
+
+const buildPosition = ({position, startDate, endDate}) => {
+	let result = '';
+	if(position) {
+		result += `**${position}**`;
+	}
+	if(startDate || endDate) {
+		result += result ? ' (' : '(';
+		result += startDate ? startDate : 'N/A';
+		result += ' - ';
+		result += endDate ? endDate : 'Present';
+		result += ")";
+	}
+	return result;
 };
 
 module.exports = {

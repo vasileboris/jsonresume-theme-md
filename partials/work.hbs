@@ -1,0 +1,26 @@
+{{#if resume.work.length}}
+## Experience
+
+{{#each resume.work}}
+{{#if company}}
+### {{buildCompany this}}
+{{/if}}
+{{#if (or position startDate endDate)}}
+{{buildPosition this}}
+{{/if}}
+{{#if summary}}
+
+{{{summary}}}
+{{/if}}
+{{#if highlights.length}}
+
+#### Highlights
+
+{{#each highlights}}
+* {{.}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+
+{{/if}}
