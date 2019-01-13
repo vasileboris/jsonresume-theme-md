@@ -1,0 +1,30 @@
+{{#if resume.education.length}}
+## Education
+
+{{#each resume.education}}
+{{#if institution}}
+### {{buildInstitution institution null}}
+{{/if}}
+{{#if (or area startDate endDate)}}
+{{buildPosition area startDate endDate}}
+{{/if}}
+{{#if (or studyType gpa)}}
+
+{{#if studyType}}
+Study type: {{{studyType}}}
+{{/if}}
+{{#if gpa}}
+GPA: {{{gpa}}}
+{{/if}}
+{{/if}}
+{{#if courses.length}}
+
+#### Courses
+
+{{#each courses}}
+* {{.}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/if}}

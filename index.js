@@ -35,12 +35,11 @@ const buildAddress = location => {
 	return details.reduce((acc, detail) => location[detail] ? `${acc}${location[detail]} ` : acc, '')
 };
 
-const buildInstitution = ({company, organization, website}) => {
-    let institution = company || organization;
+const buildInstitution = (institution, website) => {
 	return website ? `[${institution}](${website})` : institution;
 };
 
-const buildPosition = ({position, startDate, endDate}) => {
+const buildPosition = (position, startDate, endDate) => {
 	let result = '';
 	if(position) {
 		result += `**${position}**`;
