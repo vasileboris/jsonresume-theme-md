@@ -1,8 +1,8 @@
-{{#if resume.work.length}}
-## Experience
+{{#if resume.volunteer.length}}
+## Volunteer
 
-{{#each resume.work}}
-{{#if company}}
+{{#each resume.volunteer}}
+{{#if organization}}
 ### {{buildInstitution this}}
 {{/if}}
 {{#if (or position startDate endDate)}}

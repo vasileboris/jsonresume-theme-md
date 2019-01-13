@@ -10,7 +10,7 @@ function render(resume) {
 	Handlebars.registerHelper('and', (...params) => params.length ? params.reduce((acc, p) => acc && p) : false);
 	Handlebars.registerHelper('or', (...params) => params.length ? params.reduce((acc, p) => acc || p) : false);
 	Handlebars.registerHelper('buildAddress', buildAddress);
-	Handlebars.registerHelper('buildCompany', buildCompany);
+	Handlebars.registerHelper('buildInstitution', buildInstitution);
 	Handlebars.registerHelper('buildPosition', buildPosition);
 
 	filenames.forEach(function (filename) {
@@ -35,8 +35,9 @@ const buildAddress = location => {
 	return details.reduce((acc, detail) => location[detail] ? `${acc}${location[detail]} ` : acc, '')
 };
 
-const buildCompany = ({company, website}) => {
-	return website ? `[${company}](${website})` : company;
+const buildInstitution = ({company, organization, website}) => {
+    let institution = company || organization;
+	return website ? `[${institution}](${website})` : institution;
 };
 
 const buildPosition = ({position, startDate, endDate}) => {
@@ -45,13 +46,27 @@ const buildPosition = ({position, startDate, endDate}) => {
 		result += `**${position}**`;
 	}
 	if(startDate || endDate) {
-		result += result ? ' (' : '(';
-		result += startDate ? startDate : 'N/A';
-		result += ' - ';
-		result += endDate ? endDate : 'Present';
-		result += ")";
+        result += result ? ' ' : '';
+        result += formatPeriod(startDate, endDate);
 	}
 	return result;
+};
+
+const formatPeriod = (startDate, endDate) => {
+    const formattedStartDate = startDate ? formatDate(startDate) : 'N/A';
+    const formattedEndDate = endDate ? formatDate(endDate) : 'Present';
+
+    if(formattedStartDate === formattedEndDate) {
+        return `(${formattedStartDate})`;
+    }
+
+    return `(${formattedStartDate} - ${formattedEndDate}})`;
+};
+
+const formatDate  = dateISO => {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const date = new Date(dateISO);
+    return months[date.getMonth()] +" " + date.getFullYear();
 };
 
 module.exports = {
