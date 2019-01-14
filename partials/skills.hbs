@@ -1,0 +1,13 @@
+{{#if resume.skills.length}}
+## Skills
+{{#each resume.skills}}
+{{#if (or name level)}}
+**{{concatFields this "name" "level"}}**
+{{/if}}
+{{#if keywords.length}}
+
+{{concatArray keywords}}
+{{/if}}
+
+{{/each}}
+{{/if}}

@@ -19,7 +19,7 @@ Website: {{website}}
 {{/if}}
 {{/each}}
 {{#if location}}
-Address: {{buildAddress location}}
+Address: {{concatFields location 'address' 'postalCode' 'city' 'region' 'countryCode'}}
 {{/if}}
 {{#if summary}}
 

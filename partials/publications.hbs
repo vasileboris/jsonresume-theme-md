@@ -3,10 +3,10 @@
 
 {{#each resume.publications}}
 {{#if publisher}}
-### {{buildInstitution publisher website}}
+### {{buildInstitution this 'publisher' 'website'}}
 {{/if}}
 {{#if (or name releaseDate)}}
-{{buildAchievement name releaseDate}}
+{{buildAchievement this 'name' 'releaseDate'}}
 {{/if}}
 {{#if summary}}
 

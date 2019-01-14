@@ -3,10 +3,10 @@
 
 {{#each resume.awards}}
 {{#if awarder}}
-### {{buildInstitution awarder null}}
+### {{buildInstitution this 'awarder' 'website'}}
 {{/if}}
 {{#if (or title date)}}
-{{buildAchievement title date}}
+{{buildAchievement this 'title' 'date'}}
 {{/if}}
 {{#if summary}}
 

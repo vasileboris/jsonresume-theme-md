@@ -3,10 +3,10 @@
 
 {{#each resume.work}}
 {{#if company}}
-### {{buildInstitution company website}}
+### {{buildInstitution this 'company' 'website'}}
 {{/if}}
 {{#if (or position startDate endDate)}}
-{{buildPosition position startDate endDate}}
+{{buildPosition this 'position' 'startDate' 'endDate'}}
 {{/if}}
 {{#if summary}}
 
