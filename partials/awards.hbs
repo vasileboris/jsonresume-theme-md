@@ -1,0 +1,17 @@
+{{#if resume.awards.length}}
+## Awards
+
+{{#each resume.awards}}
+{{#if awarder}}
+### {{buildInstitution awarder null}}
+{{/if}}
+{{#if (or title date)}}
+{{buildRecognition title date}}
+{{/if}}
+{{#if summary}}
+
+{{{summary}}}
+{{/if}}
+
+{{/each}}
+{{/if}}

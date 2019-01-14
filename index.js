@@ -12,6 +12,7 @@ function render(resume) {
 	Handlebars.registerHelper('buildAddress', buildAddress);
 	Handlebars.registerHelper('buildInstitution', buildInstitution);
 	Handlebars.registerHelper('buildPosition', buildPosition);
+    Handlebars.registerHelper('buildRecognition', buildRecognition);
 
 	filenames.forEach(function (filename) {
 	  const matches = /^([^.]+).hbs$/.exec(filename);
@@ -49,6 +50,18 @@ const buildPosition = (position, startDate, endDate) => {
         result += formatPeriod(startDate, endDate);
 	}
 	return result;
+};
+
+const buildRecognition = (recognition, date) => {
+    let result = '';
+    if(recognition) {
+        result += `**${recognition}**`;
+    }
+    if(date) {
+        result += result ? ' ' : '';
+        result += formatPeriod(date, date);
+    }
+    return result;
 };
 
 const formatPeriod = (startDate, endDate) => {
