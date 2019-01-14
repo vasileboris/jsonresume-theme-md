@@ -12,7 +12,7 @@ function render(resume) {
 	Handlebars.registerHelper('buildAddress', buildAddress);
 	Handlebars.registerHelper('buildInstitution', buildInstitution);
 	Handlebars.registerHelper('buildPosition', buildPosition);
-    Handlebars.registerHelper('buildRecognition', buildRecognition);
+    Handlebars.registerHelper('buildAchievement', buildAchievement);
 
 	filenames.forEach(function (filename) {
 	  const matches = /^([^.]+).hbs$/.exec(filename);
@@ -52,10 +52,10 @@ const buildPosition = (position, startDate, endDate) => {
 	return result;
 };
 
-const buildRecognition = (recognition, date) => {
+const buildAchievement = (achievement, date) => {
     let result = '';
-    if(recognition) {
-        result += `**${recognition}**`;
+    if(achievement) {
+        result += `**${achievement}**`;
     }
     if(date) {
         result += result ? ' ' : '';

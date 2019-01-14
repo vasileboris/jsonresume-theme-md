@@ -1,0 +1,17 @@
+{{#if resume.publications.length}}
+## Publications
+
+{{#each resume.publications}}
+{{#if publisher}}
+### {{buildInstitution publisher website}}
+{{/if}}
+{{#if (or name releaseDate)}}
+{{buildAchievement name releaseDate}}
+{{/if}}
+{{#if summary}}
+
+{{{summary}}}
+{{/if}}
+
+{{/each}}
+{{/if}}
