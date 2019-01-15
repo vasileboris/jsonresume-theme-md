@@ -12,6 +12,7 @@ function render(resume) {
 	Handlebars.registerHelper('buildInstitution', buildInstitution);
 	Handlebars.registerHelper('buildPosition', buildPosition);
     Handlebars.registerHelper('buildAchievement', buildAchievement);
+	Handlebars.registerHelper('buildLanguage', buildLanguage);
     Handlebars.registerHelper('concatArray', concatArray);
 	Handlebars.registerHelper('concatFields', concatFields);
 
@@ -84,6 +85,20 @@ const buildAchievement = (context, achievementField, dateField) => {
     return result;
 };
 
+const buildLanguage = (context, languageField, fluencyField) => {
+	const language = context[languageField],
+		fluency = context[fluencyField];
+	let result = '';
+	if(language) {
+		result += `**${language}**`;
+	}
+	if(fluency) {
+		result += result ? ': ' : '';
+		result += fluency;
+	}
+	return result;
+};
+
 const formatPeriod = (startDate, endDate) => {
     const formattedStartDate = startDate ? formatDate(startDate) : 'N/A';
     const formattedEndDate = endDate ? formatDate(endDate) : 'Present';
@@ -92,7 +107,7 @@ const formatPeriod = (startDate, endDate) => {
         return `(${formattedStartDate})`;
     }
 
-    return `(${formattedStartDate} - ${formattedEndDate}})`;
+    return `(${formattedStartDate} - ${formattedEndDate})`;
 };
 
 const formatDate  = dateISO => {
