@@ -1,0 +1,10 @@
+{{#if resume.languages.length}}
+## Languages
+
+{{#each resume.languages}}
+{{#if (or language fluency)}}
+{{concatFields this "language" "fluency"}}
+{{/if}}
+
+{{/each}}
+{{/if}}
