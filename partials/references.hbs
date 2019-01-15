@@ -1,0 +1,13 @@
+{{#if resume.references.length}}
+## References
+
+{{#each resume.references}}
+{{#if name}}
+**{{name}}**
+{{/if}}
+{{#if reference}}
+>{{reference}}
+{{/if}}
+
+{{/each}}
+{{/if}}
