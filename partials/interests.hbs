@@ -1,0 +1,14 @@
+{{#if resume.interests.length}}
+## Interests
+
+{{#each resume.interests}}
+{{#if name}}
+**{{name}}**
+{{/if}}
+{{#if keywords.length}}
+
+{{concatArray keywords}}
+{{/if}}
+
+{{/each}}
+{{/if}}
