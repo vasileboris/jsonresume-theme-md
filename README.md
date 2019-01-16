@@ -6,7 +6,7 @@ It is based on the skeleton code provided by [jsonresume-theme-boilerplate][git-
 
 # How to use it
 
-For the moment [resume-cli][resume-cli] has support for html and pdf output only. 
+For the moment [resume-cli][git-resume-cli] has support for html and pdf output only. 
 Until [my pull request][git-resume-cli-pull-request] will be merged and a new [npm package][npm-resume-cli] will be released, 
 you have to use it like
 
