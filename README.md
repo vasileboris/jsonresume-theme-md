@@ -14,7 +14,7 @@ you have to use it like
 resume export resume.html -r resume.json -t md
 ```
 
-and then rename *resume.html* to *resume.nd*. 
+and then rename *resume.html* to *resume.md*. 
 
 [jsonresume]: https://jsonresume.org/
 [git-jsonresume-theme-boilerplate]: https://github.com/jsonresume/jsonresume-theme-boilerplate
