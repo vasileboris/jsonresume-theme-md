@@ -11,7 +11,7 @@ Until [my pull request][git-resume-cli-pull-request] will be merged and a new [n
 you have to use it like
 
 ```
-resume export resume.html -r resume.json -t markdown
+resume export resume.html -r resume.json -t md
 ```
 
 and then rename *resume.html* to *resume.md*. 
