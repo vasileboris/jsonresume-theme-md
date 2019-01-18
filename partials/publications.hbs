@@ -2,12 +2,11 @@
 ## Publications
 
 {{#each resume.publications}}
-{{#if publisher}}
-### {{buildInstitution this 'publisher' 'website'}}
+{{#if name}}
+### {{name}}
 {{/if}}
-{{#if (or name releaseDate)}}
-
-{{buildAchievement this 'name' 'releaseDate'}}
+{{#if publisher}}
+**{{buildInstitution this 'publisher' 'website'}}** {{buildDate this 'releaseDate'}}
 {{/if}}
 {{#if summary}}
 

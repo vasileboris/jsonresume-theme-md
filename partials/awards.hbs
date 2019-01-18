@@ -2,12 +2,11 @@
 ## Awards
 
 {{#each resume.awards}}
-{{#if awarder}}
-### {{buildInstitution this 'awarder' 'website'}}
+{{#if title}}
+### {{title}}
 {{/if}}
-{{#if (or title date)}}
-
-{{buildAchievement this 'title' 'date'}}
+{{#if awarder}}
+**{{buildInstitution this 'awarder' 'website'}}** {{buildDate this 'date'}}
 {{/if}}
 {{#if summary}}
 

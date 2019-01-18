@@ -2,12 +2,11 @@
 ## Education
 
 {{#each resume.education}}
-{{#if institution}}
-### {{buildInstitution this 'institution' 'website'}}
+{{#if area}}
+### {{area}}
 {{/if}}
-{{#if (or area startDate endDate)}}
-
-{{buildPosition this 'area' 'startDate' 'endDate'}}
+{{#if institution}}
+**{{buildInstitution this 'institution' 'website'}}** {{buildPeriod this 'startDate' 'endDate'}}
 {{/if}}
 {{#if (or studyType gpa)}}
 

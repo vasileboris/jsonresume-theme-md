@@ -10,8 +10,8 @@ function render(resume) {
 	Handlebars.registerHelper('and', and);
 	Handlebars.registerHelper('or', or);
 	Handlebars.registerHelper('buildInstitution', buildInstitution);
-	Handlebars.registerHelper('buildPosition', buildPosition);
-    Handlebars.registerHelper('buildAchievement', buildAchievement);
+	Handlebars.registerHelper('buildPeriod', buildPeriod);
+	Handlebars.registerHelper('buildDate', buildDate);
 	Handlebars.registerHelper('buildLanguage', buildLanguage);
     Handlebars.registerHelper('concatArray', concatArray);
 	Handlebars.registerHelper('concatFields', concatFields);
@@ -56,35 +56,6 @@ const buildInstitution = (context, institutionField, websiteField) => {
 	return website ? `[${institution}](${website})` : institution;
 };
 
-const buildPosition = (context, positionField, startDateField, endDateField) => {
-	const position = context[positionField],
-		startDate = context[startDateField],
-		endDate = context[endDateField];
-	let result = '';
-	if(position) {
-		result += `**${position}**`;
-	}
-	if(startDate || endDate) {
-        result += result ? ' ' : '';
-        result += formatPeriod(startDate, endDate);
-	}
-	return result;
-};
-
-const buildAchievement = (context, achievementField, dateField) => {
-	const achievement = context[achievementField],
-		date = context[dateField];
-    let result = '';
-    if(achievement) {
-        result += `**${achievement}**`;
-    }
-    if(date) {
-        result += result ? ' ' : '';
-        result += formatPeriod(date, date);
-    }
-    return result;
-};
-
 const buildLanguage = (context, languageField, fluencyField) => {
 	const language = context[languageField],
 		fluency = context[fluencyField];
@@ -99,7 +70,22 @@ const buildLanguage = (context, languageField, fluencyField) => {
 	return result;
 };
 
+const buildPeriod = (context, startDateField, endDateField) => {
+	const startDate = context[startDateField],
+		endDate = context[endDateField];
+	return formatPeriod(startDate, endDate);
+};
+
+const buildDate = (context, dateField) => {
+	const date = context[dateField];
+	return formatPeriod(date, date);
+};
+
 const formatPeriod = (startDate, endDate) => {
+	if(!startDate && !endDate) {
+		return '';
+	}
+
     const formattedStartDate = startDate ? formatDate(startDate) : 'N/A';
     const formattedEndDate = endDate ? formatDate(endDate) : 'Present';
 

@@ -2,12 +2,11 @@
 ## Experience
 
 {{#each resume.work}}
-{{#if company}}
-### {{buildInstitution this 'company' 'website'}}
+{{#if position}}
+### {{position}}
 {{/if}}
-{{#if (or position startDate endDate)}}
-
-{{buildPosition this 'position' 'startDate' 'endDate'}}
+{{#if company}}
+**{{buildInstitution this 'company' 'website'}}** {{buildPeriod this 'startDate' 'endDate'}}
 {{/if}}
 {{#if summary}}
 

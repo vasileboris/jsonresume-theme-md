@@ -2,12 +2,11 @@
 ## Volunteer
 
 {{#each resume.volunteer}}
-{{#if organization}}
-### {{buildInstitution this 'organization' 'website'}}
+{{#if position}}
+### {{position}}
 {{/if}}
-{{#if (or position startDate endDate)}}
-
-{{buildPosition this 'position' 'startDate' 'endDate'}}
+{{#if organization}}
+**{{buildInstitution this 'organization' 'website'}}** {{buildPeriod this 'startDate' 'endDate'}}
 {{/if}}
 {{#if summary}}
 
