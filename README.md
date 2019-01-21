@@ -1,10 +1,12 @@
-# About
+# JSON Resume Markdown Theme
+
+## About
 
 It is a theme used to render a [jsonresume][jsonresume] as markdown.
 
 It is based on the skeleton code provided by [jsonresume-theme-boilerplate][git-jsonresume-theme-boilerplate].
 
-# How to use it
+## How to use it
 
 For the moment [resume-cli][git-resume-cli] has support for html and pdf output only. 
 Until [my pull request][git-resume-cli-pull-request] will be merged and a new [npm package][npm-resume-cli] will be released, 

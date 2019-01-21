@@ -1,11 +1,12 @@
 {
   "name": "jsonresume-theme-md",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "It is a theme used to render a jsonresume as markdown",
   "main": "index.js",
   "repository": "https://github.com/vasileboris/jsonresume-theme-md",
   "author": "Vasile Boris",
   "license": "MIT",
+  "homepage": "https://espressoprogrammer.com/libraries/jsonresume-theme-md",
   "dependencies": {
     "handlebars": "^4.0.12"
   }
